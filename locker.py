@@ -171,15 +171,19 @@ def main():
               print(f" Account Name: {account_result.account}, Account Username: {account_result.username}, Account Password {account_result.password}")
 
             else:
-              print("You do not have search an account")
+              print("You do not have such an account")
 
           elif choice == "D":
             print("Enter account name to delete")
             delete_account_name = input()
             print("\n")
 
-            account_delete = search_account(delete_account_name)
-            delete_account(account_delete)
+            if search_account(delete_account_name):
+              account_delete = search_account(delete_account_name)
+              delete_account(account_delete)
+            else:
+              print("This account does not exist")
+            
           elif choice == "E":
             print("Thank you for using Password Locker")
             break

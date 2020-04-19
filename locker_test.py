@@ -30,5 +30,16 @@ class TestLocker(unittest.TestCase):
     self.assertEqual(self.new_credentials.username,"mchcots")
     self.assertEqual(self.new_credentials.password,"qwerty123")
 
+  def test_save_user_credentials(self):
+    '''
+    tests if the methodsto save in the different classes work
+    '''
+    self.new_user.save_users()
+    self.new_credentials.save_credentials()
+
+    self.assertEqual(len(Credentials.credentials_list),1)
+    self.assertEqual(1,len(User.users_list))
+    
+
 if __name__ == '__main__':
   unittest.main()

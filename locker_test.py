@@ -16,4 +16,19 @@ class TestLocker(unittest.TestCase):
     '''
     self.new_user = User("Michael","Cotts",25,"mchcots@gmail.com","mchcots")
     self.new_credentials = Credentials("mchcots","qwerty123")
-  
+
+  def test_init(self):
+    '''
+    tests if the users and credentials have been initialized correctly
+    '''
+    self.assertEqual(self.new_user.firstname,"Michael")
+    self.assertEqual(self.new_user.lastname,"Cotts")
+    self.assertEqual(self.new_user.age,25)
+    self.assertEqual(self.new_user.email,"mchcots@gmail.com")
+    self.assertEqual(self.new_user.username,"mchcots")
+
+    self.assertEqual(self.new_credentials.username,"mchcots")
+    self.assertEqual(self.new_credentials.password,"qwerty123")
+
+if __name__ == '__main__':
+  unittest.main()

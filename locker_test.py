@@ -74,9 +74,12 @@ class TestLocker(unittest.TestCase):
     '''
     self.new_credentials.save_credentials()
     dummy_credentials = Credentials("facebook","miahulf","asdfg456")
-    dummy_user.save_users()
+    dummy_credentials.save_credentials()
 
-    searched_account = 
+    account_exist = Credentials.search_account("facebook")
+    self.assertTrue(account_exist)
+    account_notexist = Credentials.search_account("instagram")
+    self.assertFalse(account_notexist)
 
 
 

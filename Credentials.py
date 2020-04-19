@@ -27,4 +27,9 @@ class Credentials:
   @classmethod
   def search_account(cls,account_name):
     '''
-    searches if there exists
+    searches if there exists the searched account
+    '''
+    for account in cls.credentials_list:
+      if account.account == account_name:
+        return True
+    return False

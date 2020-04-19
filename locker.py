@@ -132,10 +132,8 @@ def main():
               elif password_choice == "NO":
                 print("Please Enter Account Password")
                 new_account_password = input()
-
-              print(f"Account name:{new_account_name} \n Account Username: {new_account_username} \n Account Password: {new_account_password} \n")
-
-              save_account(create_new_account_credentials(new_account_name, new_account_username, new_account_password))
+                print(f"Account name:{new_account_name} \n Account Username: {new_account_username} \n Account Password: {new_account_password} \n")
+                save_account(create_new_account_credentials(new_account_name, new_account_username, new_account_password))
 
           elif choice == "B":
             if display_accounts():
@@ -173,7 +171,7 @@ def main():
     elif log_in_choice == "B":
       print("See ya, for now")
       break
-    
+
 if __name__ == '__main__':
   main()
 

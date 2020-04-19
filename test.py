@@ -27,6 +27,7 @@ def main():
   searchname = input()
 
   result = search_account(searchname)
+  
   for account in Credentials.credentials_list:
     if account.account == result:
        return account

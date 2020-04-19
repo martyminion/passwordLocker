@@ -14,7 +14,7 @@ class TestLocker(unittest.TestCase):
     the setup is a method that runs before each of the test cases is run
     creates a test user and his credentials
     '''
-    self.new_user = User("Michael","Cotts",25,"mchcots@gmail.com")
+    self.new_user = User("Michael","Cotts",25,"mchcots@gmail.com","zxcv456")
     self.new_credentials = Credentials("twitter","mchcots","qwerty123")
 
   def tearDown(self):
@@ -33,6 +33,7 @@ class TestLocker(unittest.TestCase):
     self.assertEqual(self.new_user.lastname,"Cotts")
     self.assertEqual(self.new_user.age,25)
     self.assertEqual(self.new_user.email,"mchcots@gmail.com")
+    self.assertEqual(self.new_user.password,"zxcv456")
     
     self.assertEqual(self.new_credentials.account,"twitter")
     self.assertEqual(self.new_credentials.username,"mchcots")
@@ -54,7 +55,7 @@ class TestLocker(unittest.TestCase):
     '''
     self.new_user.save_users()
     self.new_credentials.save_credentials()
-    dummy_user = User("Mia","Hulfsen",21,"hulfmia@gmail")
+    dummy_user = User("Mia","Hulfsen",21,"hulfmia@gmail","lkjh987")
     dummy_credentials = Credentials("facebook","miahulf","asdfg456")
     dummy_user.save_users()
     dummy_credentials.save_credentials()
@@ -91,7 +92,7 @@ class TestLocker(unittest.TestCase):
 
     Credentials.credentials_list.remove(dummy_credentials)
     self.assertEqual(1,len(Credentials.credentials_list))
-    
+
 
 
 

@@ -5,7 +5,7 @@ class User:
   '''
   users_list = []
 
-  def __init__(self, firstname, lastname, age, email):
+  def __init__(self, firstname, lastname, age, email, password):
     '''
     initializes the instances of user
     '''
@@ -13,6 +13,7 @@ class User:
     self.lastname = lastname
     self.age = age
     self.email = email
+    self.password = password
   
   def save_users(self):
     '''

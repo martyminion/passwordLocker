@@ -55,7 +55,7 @@ def display_accounts():
   '''
   displays all the available Accounts and credentials
   '''
-  return display_accounts()
+  return Credentials.display_accounts()
 
 def autogenerate_password(password_length):
   '''
@@ -136,7 +136,7 @@ def main():
                 save_account(create_new_account_credentials(new_account_name, new_account_username, new_account_password))
 
           elif choice == "B":
-            if display_accounts():
+            if len(display_accounts()) > 0:
               print("Current Accounts \n")
 
               for account in display_accounts():

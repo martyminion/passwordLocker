@@ -5,9 +5,10 @@ class User:
   '''
   Users = []
 
-  def __init__(self, firstname, lastname, age, email):
+  def __init__(self, firstname, lastname, age, email, username):
     self.firstname = firstname
     self.lastname = lastname
     self.age = age
     self.email = email
+    self.username = email
   

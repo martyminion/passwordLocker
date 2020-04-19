@@ -23,6 +23,16 @@ class Credentials:
     deletes an unused account by users choice
     '''
     Credentials.credentials_list.remove(self)
+    
+  @classmethod
+  def search_account(cls,account_name):
+    '''
+    searches if there exists the searched account
+    '''
+    for single_account in cls.credentials_list:
+      if single_account.account == account_name:
+        return single_account
+
   @classmethod
   def display_accounts(cls):
     '''
@@ -30,12 +40,5 @@ class Credentials:
     '''
     return cls.credentials_list
 
-  @classmethod
-  def search_account(cls,account_name):
-    '''
-    searches if there exists the searched account
-    '''
-    for account in cls.credentials_list:
-      if account.account == account_name:
-        return account
+  
     

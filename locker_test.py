@@ -91,10 +91,8 @@ class TestLocker(unittest.TestCase):
     dummy_credentials.save_credentials()
 
     account_exist = Credentials.search_account("facebook")
-    
-    self.assertTrue(account_exist)
-    account_notexist = Credentials.search_account("instagram")
-    self.assertFalse(account_notexist)
+
+    self.assertEqual(dummy_credentials.account,account_exist)
 
   def test_delete_account(self):
     '''

@@ -14,8 +14,16 @@ class TestLocker(unittest.TestCase):
     the setup is a method that runs before each of the test cases is run
     creates a test user and his credentials
     '''
-    self.new_user = User("Michael","Cotts",25,"mchcots@gmail.com","mchcots")
-    self.new_credentials = Credentials("mchcots","qwerty123")
+    self.new_user = User("Michael","Cotts",25,"mchcots@gmail.com")
+    self.new_credentials = Credentials("twitter","mchcots","qwerty123")
+
+  def tearDown(self):
+    '''
+    this method does a clean up after each test case is run
+    clears the credential list and user list
+    '''
+    User.users_list = []
+    Credentials.credentials_list = []
 
   def test_init(self):
     '''
@@ -25,8 +33,8 @@ class TestLocker(unittest.TestCase):
     self.assertEqual(self.new_user.lastname,"Cotts")
     self.assertEqual(self.new_user.age,25)
     self.assertEqual(self.new_user.email,"mchcots@gmail.com")
-    self.assertEqual(self.new_user.username,"mchcots")
-
+    
+    self.assertEqual(self.new_credentials.account,"twitter")
     self.assertEqual(self.new_credentials.username,"mchcots")
     self.assertEqual(self.new_credentials.password,"qwerty123")
 
@@ -39,7 +47,39 @@ class TestLocker(unittest.TestCase):
 
     self.assertEqual(len(Credentials.credentials_list),1)
     self.assertEqual(1,len(User.users_list))
-    
+  
+  def test_save_multiple_users_credentials(self):
+    '''
+    tests if we can save multiple users and credentials
+    '''
+    self.new_user.save_users()
+    self.new_credentials.save_credentials()
+    dummy_user = User("Mia","Hulfsen",21,"hulfmia@gmail")
+    dummy_credentials = Credentials("facebook","miahulf","asdfg456")
+    dummy_user.save_users()
+    dummy_credentials.save_credentials()
+
+    self.assertEqual(len(User.users_list),2)
+    self.assertEqual(len(Credentials.credentials_list),2)
+  
+  def test_displayCredentials(self):
+    '''
+    tests if the list of credentials is displayed
+    '''
+    self.assertEqual(Credentials.display_accounts(),Credentials.credentials_list)
+
+  def test_search_account(self):
+    '''
+    tests if you can search for a particular account
+    '''
+    self.new_credentials.save_credentials()
+    dummy_credentials = Credentials("facebook","miahulf","asdfg456")
+    dummy_user.save_users()
+
+    searched_account = 
+
+
+
 
 if __name__ == '__main__':
   unittest.main()

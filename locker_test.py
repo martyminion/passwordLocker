@@ -39,6 +39,7 @@ class TestLocker(unittest.TestCase):
     self.assertEqual(self.new_credentials.username,"mchcots")
     self.assertEqual(self.new_credentials.password,"qwerty123")
 
+  
   def test_save_user_credentials(self):
     '''
     tests if the methodsto save in the different classes work
@@ -62,7 +63,19 @@ class TestLocker(unittest.TestCase):
 
     self.assertEqual(len(User.users_list),2)
     self.assertEqual(len(Credentials.credentials_list),2)
-  
+
+  def test_check_email_password_match(self):
+    '''
+    tests if password and email can be matched
+    '''
+    self.new_user.save_users()
+    dummy_user = User("Mia","Hulfsen",21,"hulfmia@gmail","lkjh987")
+    dummy_user.save_users()
+
+    result = User.check_email_password_match("hulfmia@gmail","lkjh987")
+
+    self.assertTrue(result)
+
   def test_displayCredentials(self):
     '''
     tests if the list of credentials is displayed
@@ -78,6 +91,7 @@ class TestLocker(unittest.TestCase):
     dummy_credentials.save_credentials()
 
     account_exist = Credentials.search_account("facebook")
+    
     self.assertTrue(account_exist)
     account_notexist = Credentials.search_account("instagram")
     self.assertFalse(account_notexist)

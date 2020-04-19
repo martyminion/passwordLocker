@@ -20,5 +20,16 @@ class User:
     saves the users into the lisr of users
     '''
     User.users_list.append(self)
+  @classmethod
+  def check_email_password_match(cls,useremail,userpassword):
+    '''
+    checks if password and email match
+    '''
+
+    for user in cls.users_list:
+      if user.email == useremail and user.password == userpassword:
+        return True
+    return False
+  
 
   

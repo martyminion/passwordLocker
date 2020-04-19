@@ -47,7 +47,7 @@ def save_account(account):
 
 def search_account(account_name):
   '''
-  checks if the account exists
+  searches for the inputed account name
   '''
   return Credentials.search_account(account_name)
 
@@ -91,7 +91,7 @@ def main():
 
   while result == True:
     print("Thank you for using Password Locker")
-    print("What would you like to do:\n A: Add a new Account \n B: Display current accounts \n C: Search for existing account \n D: Delete an account")
+    print("What would you like to do:\n A: Add a new Account \n B: Display current accounts \n C: Search for existing account \n D: Delete an account \n E: End Program")
     print("Please choose options using the preceding Letter, A to Add a new account")
     choice = str(input()).capitalize()
 
@@ -144,7 +144,30 @@ def main():
       account_search = input()
 
       if search_account(account_search):
-        account_result = 
+        account_result = search_account(account_search)
+        print(f"{account_result.account} {account_result.username}{account_result.password}")
+
+      else:
+        print("You do not have search an account")
+
+    elif choice == "D":
+      print("Enter account name to delete")
+      delete_account_name = input()
+
+      account_delete = search_account(delete_account_name)
+      delete_account(account_delete)
+    elif choice == "E":
+      print("Thank you for using Password Locker")
+      break
+    else:
+      print("Please Choose an option from the available options")
+      
+if __name__ == '__main__':
+  main()
+
+
+
+
 
 
 

@@ -81,6 +81,19 @@ class TestLocker(unittest.TestCase):
     account_notexist = Credentials.search_account("instagram")
     self.assertFalse(account_notexist)
 
+  def test_delete_account(self):
+    '''
+    tests if the account can be deleted
+    '''
+    self.new_credentials.save_credentials()
+    dummy_credentials = Credentials("facebook","miahulf","asdfg456")
+    dummy_credentials.save_credentials()
+
+    Credentials.credentials_list.remove(dummy_credentials)
+    self.assertEqual(1,len(Credentials.credentials_list))
+    
+
+
 
 
 

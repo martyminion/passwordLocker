@@ -17,6 +17,12 @@ class Credentials:
     saves the credentials into an array
     '''
     Credentials.credentials_list.append(self)
+
+  def delete_account(self):
+    '''
+    deletes an unused account by users choice
+    '''
+    Credentials.credentials_list.remove(self)
   @classmethod
   def display_accounts(cls):
     '''

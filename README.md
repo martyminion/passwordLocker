@@ -17,7 +17,7 @@ the app was built in Python
 Basic Git knowledge
 Fork the repo
 Clone the repo to your local directory
-run the py file
+run the locker.py file
 
 # Support
 in case of any recommendations or problems encountered

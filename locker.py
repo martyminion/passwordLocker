@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 
 import random
 import string
@@ -153,6 +154,7 @@ def main():
                 save_account(create_new_account_credentials(new_account_name, new_account_username, new_account_password))
                 print("--" * 30)
             else:
+              print("--" * 30)
               print("Please choose from the options provided")
               print("--" * 30)
           elif choice == "B":
@@ -164,7 +166,9 @@ def main():
                 print("--" * 30)
             
             else:
+              print("--" * 30)
               print("You have no accounts yet")
+              print("--" * 30)
           elif choice == "C":
             print("Enter account name to search for")
             account_search = input()
@@ -175,6 +179,7 @@ def main():
               print(f" Account Name: {account_result.account}, Account Username: {account_result.username}, Account Password {account_result.password}")
               print("--" * 30)
             else:
+              print("--" * 30)
               print("You do not have such an account")
               print("--" * 30)
           elif choice == "D":
@@ -186,19 +191,27 @@ def main():
               account_delete = search_account(delete_account_name)
               delete_account(account_delete)
             else:
+              print("--" * 30)
               print("This account does not exist")
+              print("--" * 30)
             
           elif choice == "E":
+            print("--" * 30)
             print("Thank you for using Password Locker")
+            print("--" * 30)
             break
           else:
+            print("--" * 30)
             print("Please Choose an option from the available options \n")
             print("--" * 30)
       elif result == False:
+        print("--" * 30)
         print("Please Enter correct credentials \n")
         print("--" * 30)
     elif log_in_choice == "B":
+      print("--" * 30)
       print("See ya, for now")
+      print("--" * 30)
       break
 
 if __name__ == '__main__':

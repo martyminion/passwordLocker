@@ -144,22 +144,24 @@ def main():
 
                 print(f"Account name:{new_account_name} \n Account Username: {new_account_username} \n Account Password: {new_generated_password} \n")
                 save_account(create_new_account_credentials(new_account_name, new_account_username, new_generated_password))
-
+                print("--" * 30)
               elif password_choice == "NO":
                 print("Please Enter Account Password")
                 new_account_password = input()
                 print("\n")
                 print(f"Account name:{new_account_name} \n Account Username: {new_account_username} \n Account Password: {new_account_password} \n")
                 save_account(create_new_account_credentials(new_account_name, new_account_username, new_account_password))
+                print("--" * 30)
             else:
               print("Please choose from the options provided")
-
+              print("--" * 30)
           elif choice == "B":
             if len(display_accounts()) > 0:
               print("Current Accounts \n")
 
               for account in display_accounts():
                 print(f"Acount Name: {account.account}, Account Username: {account.username}, Account Password: {account.password} \n")
+                print("--" * 30)
             
             else:
               print("You have no accounts yet")
@@ -171,10 +173,10 @@ def main():
             if search_account(account_search):
               account_result = search_account(account_search)
               print(f" Account Name: {account_result.account}, Account Username: {account_result.username}, Account Password {account_result.password}")
-
+              print("--" * 30)
             else:
               print("You do not have such an account")
-
+              print("--" * 30)
           elif choice == "D":
             print("Enter account name to delete")
             delete_account_name = input()
@@ -190,9 +192,11 @@ def main():
             print("Thank you for using Password Locker")
             break
           else:
-            print("Please Choose an option from the available options")
+            print("Please Choose an option from the available options \n")
+            print("--" * 30)
       elif result == False:
-        print("Please Enter correct credentials")
+        print("Please Enter correct credentials \n")
+        print("--" * 30)
     elif log_in_choice == "B":
       print("See ya, for now")
       break

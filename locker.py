@@ -83,7 +83,7 @@ def main():
   save_user(create_new_user(fname, lname, users_age, users_email,users_password))
 
   print(f"Thank you {fname} {lname} for signing up")
-  print("--" * 20)
+  print("--" * 30)
   while True:
     print("Press A to Log in to Password Locker or B to exit")
     log_in_choice = input().upper()
@@ -101,10 +101,11 @@ def main():
 
       if result == True:
         while result == True:
+          print("--" * 30)
           print("Thank you for using Password Locker")
           print("What would you like to do:\n A: Add a new Account \n B: Display current accounts \n C: Search for existing account \n D: Delete an account \n E: End Program")
           print("Please choose options using the preceding Letter, A to Add a new account")
-          choice = str(input()).capitalize()
+          choice = str(input()).upper()
           print("\n")
 
           if choice == "A":
@@ -124,6 +125,7 @@ def main():
               print(f"Account name:{new_account_name} \n Account Username: {new_account_username} \n Account Password: {new_account_password} \n")
 
               save_account(create_new_account_credentials(new_account_name, new_account_username, new_account_password))
+              print("--" * 30)
             elif new_account_choice == "2":
               print("Please Enter Account Name")
               new_account_name = input()

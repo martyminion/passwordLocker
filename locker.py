@@ -46,6 +46,12 @@ def save_account(account):
   '''
   account.save_credentials()
 
+def password_copy(account_name):
+  '''
+  copys the instance od passwor of that account
+  '''
+  Credentials.copy_password(account_name)
+
 def search_account(account_name):
   '''
   searches for the inputed account name
@@ -178,6 +184,17 @@ def main():
               account_result = search_account(account_search)
               print(f" Account Name: {account_result.account}, Account Username: {account_result.username}, Account Password {account_result.password}")
               print("--" * 30)
+              print("Do you want to copy the password, type YES or NO")
+              copy_choice = input().upper()
+              if copy_choice == "YES":
+                password_copy(account_search)
+                print("password has been copied to the clipboard")
+              elif copy_choice == "NO":
+                pass
+              else:
+                print("--" * 30)
+                print("Please choose from the options provided")
+                print("--" * 30)
             else:
               print("--" * 30)
               print("You do not have such an account")
@@ -190,6 +207,7 @@ def main():
             if search_account(delete_account_name):
               account_delete = search_account(delete_account_name)
               delete_account(account_delete)
+              print(f"Account: {account_delete.name} has been deleted")
             else:
               print("--" * 30)
               print("This account does not exist")

@@ -14,10 +14,10 @@ the app was built in Python
 
 # SetUp and Installation Requirements
 
-Basic Git knowledge
-Fork the repo
-Clone the repo to your local directory
-run the locker.py file
+. Basic Git knowledge
+. Fork the repo
+. Clone the repo to your local directory
+. run the locker.py file
 
 # Support
 in case of any recommendations or problems encountered

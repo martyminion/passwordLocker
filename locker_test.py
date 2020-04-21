@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from User import User
 from Credentials import Credentials
 
@@ -105,10 +106,16 @@ class TestLocker(unittest.TestCase):
     Credentials.credentials_list.remove(dummy_credentials)
     self.assertEqual(1,len(Credentials.credentials_list))
 
+  def test_copy_password(self):
+    '''
+    test to confirm that a password is copied from a found contact
+    '''
 
+    self.new_credentials.save_credentials()
+    Credentials.copy_password("twitter")
 
-
-
+    self.assertEqual(self.new_credentials.password,pyperclip.paste())
+    
 
 if __name__ == '__main__':
   unittest.main()
